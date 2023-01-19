@@ -1,0 +1,8 @@
+include *.yaml
+include *.csv
+recursive-include ./churn_model/*
+
+include churn_model/data/raw/*.csv
+include churn_model/models/*.pkl
+include churn_model/config.yaml 
+include churn_model/models/stackingModelV1
