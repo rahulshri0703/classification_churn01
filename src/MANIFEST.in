@@ -6,3 +6,4 @@ include churn_model/data/raw/*.csv
 include churn_model/models/*.pkl
 include churn_model/config.yaml 
 include churn_model/models/stackingModelV1
+include churn_model/models/final_pipeline.pkl

@@ -5,9 +5,9 @@ from pydantic import BaseModel
 
 PACKAGE_DIR = Path(__file__).resolve().parent.parent
 ROOT = PACKAGE_DIR.parent
-CONFIG_FILE_PATH = PACKAGE_DIR / 'config.yaml'
-BEST_MODEL_DIR = PACKAGE_DIR / 'models'
-DATA_DIR = PACKAGE_DIR / 'data/raw'
+CONFIG_FILE_PATH = PACKAGE_DIR / "config.yaml"
+BEST_MODEL_DIR = PACKAGE_DIR / "models"
+DATA_DIR = PACKAGE_DIR / "data/raw"
 
 
 class AppConfig(BaseModel):
@@ -44,7 +44,7 @@ class Config(BaseModel):
 def find_config_path() -> Path:
     if CONFIG_FILE_PATH.is_file():
         return CONFIG_FILE_PATH
-    raise Exception(f'config not in {CONFIG_FILE_PATH}')
+    raise Exception(f"config not in {CONFIG_FILE_PATH}")
 
 
 def fetch_config_file(cfg_path: Path = None) -> YAML:
@@ -52,11 +52,11 @@ def fetch_config_file(cfg_path: Path = None) -> YAML:
     if not cfg_path:
         cfg_path = find_config_path()
 
-    with open(cfg_path, 'r') as f:
+    with open(cfg_path, "r") as f:
         parsed_config = load(f.read())
         return parsed_config
 
-    raise OSError(f'didnot find config file at {cfg_path}')
+    raise OSError(f"didnot find config file at {cfg_path}")
 
 
 def create_and_validate_config(parsed_config: YAML = None) -> Config:
@@ -64,8 +64,10 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
     if parsed_config is None:
         parsed_config = fetch_config_file()
 
-    _config = Config(app_config=AppConfig(**parsed_config.data),
-                     model_config=ModelConfig(**parsed_config.data))
+    _config = Config(
+        app_config=AppConfig(**parsed_config.data),
+        model_config=ModelConfig(**parsed_config.data),
+    )
 
     return _config
 

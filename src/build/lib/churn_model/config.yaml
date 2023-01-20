@@ -416,7 +416,7 @@ rename:
   jun_vbc_3g: vbc_3g_6
 saved_model_name: stackingModelV1
 saved_pipeline_name: pipeline_v1.pkl
-final_pipeline: final_pipeline
+final_pipeline: final_pipeline.pkl
 x_test: x_test.csv
 x_train: x_train.csv
 y_test: y_test.csv

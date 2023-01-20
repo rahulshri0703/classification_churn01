@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+
+# import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import StackingClassifier
 from churn_model.config.core import config, DATA_DIR, BEST_MODEL_DIR
@@ -8,18 +9,18 @@ import logging
 import joblib
 
 _logger = logging.getLogger(__name__)
-_version = '0.0.1'
+_version = "0.0.1"
 
 
 def load_dataset(*, filename: str) -> pd.DataFrame:
 
-    df = pd.read_csv(f'{DATA_DIR}/{filename}')
+    df = pd.read_csv(f"{DATA_DIR}/{filename}")
     return df
 
 
 def load_pipeline(*, filename: str) -> Pipeline:
 
-    path = f'{BEST_MODEL_DIR}/{filename}'
+    path = f"{BEST_MODEL_DIR}/{filename}"
 
     pipeline = joblib.load(path)
     return pipeline
@@ -27,7 +28,7 @@ def load_pipeline(*, filename: str) -> Pipeline:
 
 def load_model(*, filename: str) -> StackingClassifier:
 
-    path = f'{BEST_MODEL_DIR}/{filename}'
+    path = f"{BEST_MODEL_DIR}/{filename}"
 
     model = joblib.load(path)
     return model
@@ -39,7 +40,7 @@ def save_pipeline(*, pipeline_to_save: Pipeline) -> None:
     save_path = BEST_MODEL_DIR / save_pipeline_name
 
     joblib.dump(pipeline_to_save, save_path)
-    _logger.info(f'pipeline saved at {save_pipeline_name}')
+    _logger.info(f"pipeline saved at {save_pipeline_name}")
 
 
 def save_model(*, model_to_save: StackingClassifier) -> None:
@@ -48,7 +49,7 @@ def save_model(*, model_to_save: StackingClassifier) -> None:
     save_path = BEST_MODEL_DIR / save_model_name
 
     joblib.dump(model_to_save, save_path)
-    _logger.info(f'pipeline saved at {save_model_name}')
+    _logger.info(f"pipeline saved at {save_model_name}")
 
 
 def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:

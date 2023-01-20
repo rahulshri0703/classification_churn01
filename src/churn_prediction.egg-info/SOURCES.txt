@@ -24,3 +24,9 @@ churn_prediction.egg-info/PKG-INFO
 churn_prediction.egg-info/SOURCES.txt
 churn_prediction.egg-info/dependency_links.txt
 churn_prediction.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_config.py
+tests/test_pipeline.py
+tests/test_predict.py
+tests/test_preprocessor.py

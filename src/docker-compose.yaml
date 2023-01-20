@@ -1,0 +1,6 @@
+version: '1'
+services:
+  web:
+    image: rahulshri0703/churn_prediction
+    ports:
+      - "8000:5000"
