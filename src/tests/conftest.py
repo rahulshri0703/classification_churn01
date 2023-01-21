@@ -855,7 +855,7 @@ def input_data():
 #     x_train = load_dataset(filename=config.app_config.x_train)
 #     y_train = load_dataset(filename=config.app_config.y_train)
     x_train = pd.DataFrame(dic)
-    x_train = x_train.replace({None:np.nan})
+    #x_train = x_train.replace({None:np.nan})
     y_train = pd.DataFrame(y)
 
     return x_train, y_train
