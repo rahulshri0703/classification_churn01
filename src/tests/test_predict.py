@@ -849,7 +849,7 @@ dic = [{'mobile_number': 7000543722,
   'total_rech_data_amt_8': 207.0}]
 
 x = pd.DataFrame(dic)
-
+x = x.replace({None:np.nan})
 input1 = x.copy()
 input2 = x.to_dict(orient='records')
 input3 = x.head(1).to_dict(orient='records')
