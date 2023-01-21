@@ -852,7 +852,7 @@ x = pd.DataFrame(dic)
 x = x.replace({None:np.nan})
 input1 = x.copy()
 input2 = x.replace({np.nan:None}).to_dict(orient='records')
-input3 = x.head(1)..replace({np.nan:None}).to_dict(orient='records')
+input3 = x.head(1).replace({np.nan:None}).to_dict(orient='records')
 
 t = (input1, input2, input3)
 
