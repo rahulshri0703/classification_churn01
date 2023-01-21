@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: configure
+        run: sudo apt update
+        
+      - name: configure2
+        run: |
+          sudo apt install python3-pip
+          pip install -r src/requirements.txt
+          pip install pytest tox
+        
+      - name : pytest_run
+        run : pytest src/tests
