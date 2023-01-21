@@ -27,7 +27,7 @@ def test_pipeline_dropRename(input_data):
 def test_predict_valid_input(input_data):
 
     x_train, y_train = input_data
-    x_train = x_train.head(5)
+    #x_train = x_train.head(5)
 
     v, error = validate_inputs(input_data=x_train)
     x_train = x_train[config.model_config.features]
